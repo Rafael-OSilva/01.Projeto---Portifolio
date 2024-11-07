@@ -1,25 +1,19 @@
-@charset "UTF8"
+@charset "utf8";
 
-*{
-    font-family: Arial, Helvetica, sans-serif;
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: aqua;
 }
 
 body{
-    background-image: linear-gradient(to right, #164773
-    , #000000e0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(235, 44, 23);
+}
+
+footer{
+    background-color: black;
 }
 
 main{
-    background-color: #fbfbfb;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px #154f76;
-    width: 600px;
-    padding: 10px;
-    margin: auto;
-}
-
-h1{
-   color: #295f4b;
-   text-align: center;
-   text-shadow: 1px 1px 0px;
+    background-color: rgb(0, 108, 216);
 }
