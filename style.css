@@ -1,6 +1,4 @@
 @charset "utf8";
-
-<<<<<<< HEAD
 h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: aqua;
@@ -13,16 +11,12 @@ body{
 
 footer{
     background-color: black;
-=======
-*{
-    font-family: 'Times New Roman', Times, serif;
 }
+
 
 body{
     background-image: linear-gradient(to right, #164773
     , #1a1b6de0);
-    
->>>>>>> 408caef94894edf92bb929fd688a9a2b51420787
 }
 
 main{
