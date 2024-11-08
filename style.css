@@ -4,21 +4,27 @@ h1{
     background-color: aqua;
 }
 
+h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: aquamarine;
+    box-shadow: #164773;
+    border-radius: 35px;
+}
+
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(235, 44, 23);
-}
-
-footer{
-    background-color: black;
-}
-
-
-body{
+    border-radius: 35px;
     background-image: linear-gradient(to right, #164773
     , #1a1b6de0);
 }
 
 main{
-    background-color: rgb(0, 108, 216);
+    background-color: rgb(160, 238, 252);
+    border-radius: 30px;
+    box-shadow: rgb(8, 37, 43);
+}
+
+img{
+    border-radius: 10px;
 }
