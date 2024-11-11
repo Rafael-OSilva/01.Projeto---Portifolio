@@ -1,25 +1,26 @@
 @charset "utf8";
 h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: aqua;
+    text-align: center;
 }
 
 h2{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-color: aquamarine;
     box-shadow: #164773;
     border-radius: 35px;
+    text-align: center;
+}
+
+main{
+    border-radius: 30px;
+    background-color: aliceblue;
 }
 
 body{
     font-family: Verdana, Geneva, Tahoma, sans;
     border-radius: 35px;
     background: linear-gradient(45deg, #000000, #3533cd); 
-}
-
-main{
-    border-radius: 30px;
-    background-color: aliceblue;
 }
 
 img{
