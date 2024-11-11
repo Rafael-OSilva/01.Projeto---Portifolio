@@ -12,17 +12,14 @@ h2{
 }
 
 body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: rgb(235, 44, 23);
+    font-family: Verdana, Geneva, Tahoma, sans;
     border-radius: 35px;
-    background-image: linear-gradient(to right, #164773
-    , #1a1b6de0);
+    background: linear-gradient(45deg, #000000, #3533cd); 
 }
 
 main{
-    background-color: rgb(160, 238, 252);
     border-radius: 30px;
-    box-shadow: rgb(8, 37, 43);
+    background-color: aliceblue;
 }
 
 img{
