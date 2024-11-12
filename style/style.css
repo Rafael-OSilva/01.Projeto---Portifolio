@@ -1,14 +1,27 @@
 @charset "utf8";
-/*#3A403B
-#376133
-#18E006
-#2FB623*/
-/*#285AA1
+
+/*
+#285AA1
 #005EE1
 #304561
-#262C33*/
+#262C33
+#fff
+*/
+
+:root{
+    --cor0: #fff;
+    --cor1: #005EE1;
+    --cor2: #285aa1;
+    --cor3: #304561;
+    --cor4: #262C33;
+    --cor5: #000;
+
+    --font-padrão: Arial, Helvetica, sans-serif;
+    --font-02:'Times New Roman', Times, serif;
+}
+
 h1{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: #fff;
 }
@@ -16,7 +29,6 @@ h1{
 h2{
     font-family:'Times New Roman', Times, serif;
     background-color: #005EE1;
-    box-shadow: #164773;
     border-radius: 35px;
     text-align: center;
     color:#fff;
