@@ -1,13 +1,5 @@
 @charset "utf8";
 
-/*
-#285AA1
-#005EE1
-#304561
-#262C33
-#fff
-*/
-
 :root{
     --cor0: #fff;
     --cor1: #005EE1;
@@ -20,31 +12,51 @@
     --font-02:'Times New Roman', Times, serif;
 }
 
-h1{
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: #fff;
-}
-
-h2{
-    font-family:'Times New Roman', Times, serif;
-    background-color: #005EE1;
-    border-radius: 35px;
-    text-align: center;
-    color:#fff;
-}
-
-main{
-    border-radius: 30px;
-    color: #fff;
-}
-
 body{
     font-family: Verdana, Geneva, Tahoma, sans;
     border-radius: 35px;
     background-color: #000;
 }
 
-img{
-    border-radius: 10px;
+div{
+
+}
+
+div > h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #fff;
+}
+
+nav{
+    text-align: center;
+    background-color: var(--cor3);
+}
+
+main{
+    border-radius: 30px;
+    color: #fff;
+    background-color: var(--cor1);
+}
+
+main > img{
+
+}
+
+main > p{
+    color: #fff;
+    font-family: var(--font-02);
+    text-align: center;
+}
+
+footer{
+    background-color: var(--cor2);
+}
+
+footer > h2{
+    font-family:'Times New Roman', Times, serif;
+    color: var(--cor0);
+    border-radius: 35px;
+    text-align: center;
+    color:#fff;
 }
