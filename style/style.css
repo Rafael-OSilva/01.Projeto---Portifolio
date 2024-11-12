@@ -1,26 +1,36 @@
 @charset "utf8";
+/*#3A403B
+#376133
+#18E006
+#2FB623*/
+/*#285AA1
+#005EE1
+#304561
+#262C33*/
 h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
+    color: #fff;
 }
 
 h2{
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: aquamarine;
+    font-family:'Times New Roman', Times, serif;
+    background-color: #005EE1;
     box-shadow: #164773;
     border-radius: 35px;
     text-align: center;
+    color:#fff;
 }
 
 main{
     border-radius: 30px;
-    background-color: aliceblue;
+    color: #fff;
 }
 
 body{
     font-family: Verdana, Geneva, Tahoma, sans;
     border-radius: 35px;
-    background: linear-gradient(45deg, #000000, #3533cd); 
+    background-color: #000;
 }
 
 img{
