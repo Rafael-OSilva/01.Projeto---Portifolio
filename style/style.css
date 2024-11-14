@@ -12,3 +12,30 @@
     --font-02:'Times New Roman', Times, serif;
 }
 
+
+/* Estilo Geral*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--cor5);
+}
+
+.interface{
+    max-width: 1280px;
+    margin: auto;
+}
+
+/* Estilo Cabeçalho*/
+header{
+    padding: 40px 4%;
+}
+
+header > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
