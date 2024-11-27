@@ -39,3 +39,38 @@ header > .interface{
     align-items: center;
     justify-content: space-between;
 }
+
+header a{
+    color: var(--cor0);
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header a:hover{
+    color: #7c7c7c;
+    transform: scale(1.20);
+}
+
+header nav ul{
+    list-style-type: none;
+}
+
+header nav ul li{
+    display: inline-block;
+    padding: 0 40px;
+}
+
+header .btn-contato button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--cor1);
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+} 
+
+header .btn-contato button:hover{
+    box-shadow: 0px 0px 8px #0400ff;
+}
