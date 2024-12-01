@@ -29,6 +29,21 @@ body{
     margin: auto;
 }
 
+.flex{
+    display: flex;
+}
+
+.btn-contato button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--cor1);
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+} 
+
 /* Estilo Cabeçalho*/
 header{
     padding: 40px 4%;
@@ -61,17 +76,49 @@ header nav ul li{
     padding: 0 40px;
 }
 
-header .btn-contato button{
-    padding: 10px 40px;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: var(--cor1);
-    border: 0;
-    border-radius: 30px;
-    cursor: pointer;
-} 
-
-header .btn-contato button:hover{
+.btn-contato button:hover{
     box-shadow: 0px 0px 8px #0400ff;
     color: var(--cor3);
+    transform: scale(1.25s);
+}
+
+/* ESTILO DO TOPO DO SITE */
+
+section.topo-do-site{
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.topo-do-site .txt-topo-site h1{
+    color: var(--cor0);
+    font-size: 36px;
+    line-height: 40px;
+}
+
+.topo-do-site .txt-topo-site h1 span{
+    color: var(--cor1);
+}
+
+.topo-do-site .txt-topo-site p{
+    color: var(--cor0);
+    margin: 40px 0px;
+}
+
+.topo-do-site .img-topo-site img{
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+}
+
+@keyframes flutuar{
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 30px;
+    }
 }
