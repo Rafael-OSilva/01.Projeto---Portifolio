@@ -114,6 +114,8 @@ section.topo-do-site .flex{
     animation: flutuar 2s ease-in-out infinite alternate;
 }
 
+/* EFEITO FLUTUANTE */
+
 @keyframes flutuar{
     0%{
         top: 0;
