@@ -2,12 +2,12 @@
 
 :root{
     --cor0: #fff;
-    --cor1: #0040FF;
+    --cor1: #0028FF;
     --cor2: #285aa1;
-    --cor3: #304561;
-    --cor4: #262C33;
+    --cor3: #515b6a;
+    --cor4: #262c339a;
     --cor5: #000;
-    --cor6: #ffffffa8;
+    --cor6: #ffffff5b;
 
     --font-padrão: Arial, Helvetica, sans-serif;
     --font-02:'Times New Roman', Times, serif;
@@ -55,12 +55,12 @@ h2.titulo span{
     color: var(--cor1);
 }
 
-button:hover{
+button:hover, form .btn-enviar input:hover{
     box-shadow: 0px 0px 8px #0400ff;
-    color: var(--cor6);
+    color: var(--cor0);
     transform: scale(1.25s);
 }
-/* Estilo Cabeçalho*/
+/* Estilo Cabeçalho */
 header{
     padding: 40px 4%;
 }
@@ -205,5 +205,106 @@ section.sobre .flex{
     font-size: 25px;
     cursor: pointer;
     margin: 0 5px;
+    transition: .2s;
+}
+
+/* ESTILO DO PORTIFÓLIO */
+section.portfolio{
+    padding: 80px 4%;
+    box-shadow: 0 0 40px 10px var(--cor6);
+}
+
+section.portfolio .flex{
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.img-port{
+    width: 360px;
+    height: 460px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 40px;
+    position: relative;
+}
+
+.img-port:hover{
+    background-position: 100% 100%;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor4);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--cor0);
+    opacity: 0;
+    transition: .5s;
+}
+
+.overlay:hover{
+    opacity: 1;
+}
+
+/* ESTILO DO PORTIFÓLIO */
+section.formulario{
+   padding: 80px 4%; 
+}
+
+form{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+form input, form textarea{
+    width: 100%;
+    background-color: var(--cor4);
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: var(--cor0);
+    font-size: 18px;
+}
+
+form input::placeholder{
+    color: var(--cor3);
+}
+
+form textarea{
+    resize: none;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form .btn-enviar{
+    margin-top: 20px;
+    text-align: center;
+}
+
+form .btn-enviar input{
+    width: 120px;
+    background-color: var(--cor1);
+    color: var(--cor5);
+    font-weight: 700;
+    cursor: pointer;
     transition: .2s;
 }
