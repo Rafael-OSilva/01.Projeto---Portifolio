@@ -7,6 +7,7 @@
     --cor3: #304561;
     --cor4: #262C33;
     --cor5: #000;
+    --cor6: #ffffffa8;
 
     --font-padrão: Arial, Helvetica, sans-serif;
     --font-02:'Times New Roman', Times, serif;
@@ -44,6 +45,21 @@ body{
     transition: .2s;
 } 
 
+h2.titulo{
+    font-size: 38px;
+    color:var(--cor0);
+    text-align: center;
+}
+
+h2.titulo span{
+    color: var(--cor1);
+}
+
+button:hover{
+    box-shadow: 0px 0px 8px #0400ff;
+    color: var(--cor6);
+    transform: scale(1.25s);
+}
 /* Estilo Cabeçalho*/
 header{
     padding: 40px 4%;
@@ -63,7 +79,7 @@ header a{
 }
 
 header a:hover{
-    color: #7c7c7c;
+    color: var(--cor6);
     transform: scale(1.20);
 }
 
@@ -74,12 +90,6 @@ header nav ul{
 header nav ul li{
     display: inline-block;
     padding: 0 40px;
-}
-
-.btn-contato button:hover{
-    box-shadow: 0px 0px 8px #0400ff;
-    color: var(--cor3);
-    transform: scale(1.25s);
 }
 
 /* ESTILO DO TOPO DO SITE */
@@ -123,4 +133,77 @@ section.topo-do-site .flex{
     100%{
         top: 30px;
     }
+}
+
+/* ESTILOS DAS ESPECIALIDADES */
+section.especialidades{
+    padding: 40px 4%;
+}
+
+section.especialidades .flex{
+    gap: 60px;
+}
+
+.especialidades .especialidades-box{
+    color: var(--cor0);
+    padding: 40px;
+    margin-top: 45px;
+    border-radius: 20px;
+    transition: .2s;
+}
+
+.especialidades .especialidades-box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--cor0);
+}
+
+.especialidades .especialidades-box i{
+    font-size: 70px;
+    color: var(--cor1);
+}
+.especialidades .especialidades-box h3{
+    font-size: 28px;
+    margin: 15px 0px;
+}
+
+/* ESTILOS DO SOBRE */
+section.sobre{
+    padding: 80px 4%;
+}
+
+section.sobre .flex{
+    align-items: center;
+    gap: 60px;
+}
+
+.sobre .txt-sobre{
+    color: var(--cor0);
+}
+
+.sobre .txt-sobre h2{
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.sobre .txt-sobre h2 span{
+    color: var(--cor1);
+    display: block;
+}
+
+.sobre .txt-sobre p{
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.sobre .txt-sobre .btn-social button{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--cor1);
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: .2s;
 }
