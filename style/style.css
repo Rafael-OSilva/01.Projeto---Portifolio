@@ -80,7 +80,7 @@ header a {
     transition: .2s;
 }
 
-header a:hover {
+header nav.menu-desktop a:hover {
     color: var(--cor6);
     transform: scale(1.20);
 }
@@ -89,11 +89,48 @@ header nav ul {
     list-style-type: none;
 }
 
-header nav ul li {
+header nav.menu-desktop ul li {
     display: inline-block;
     padding: 0 40px;
 }
 
+/* ESTILO DO MENU MOBILE */
+.menu-mobile{
+    background-color: var(--cor4);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    width: 70%;
+    overflow: hidden;
+}
+
+.menu-mobile .btn-fechar i{
+    color: var(--cor1);
+    font-size: 30px;
+} 
+
+.menu-mobile .btn-fechar{
+    padding: 20px 5%;
+}
+
+.menu-mobile nav ul{
+    text-align: right;
+}
+
+.menu-mobile nav ul li a{
+    color: var(--cor4);
+    font-size: 20px;
+    font-weight: 300;
+    padding: 20px 8%;
+    display: block;
+}
+
+.menu-mobile nav ul li a:hover{
+    background-color: var(--cor1);
+    color: var(--cor5);
+}
 /* ESTILO DO TOPO DO SITE */
 
 section.topo-do-site {
@@ -390,6 +427,34 @@ footer .line-footer p a {
     .sobre .txt-sobre h2 {
         font-size: 34px;
         line-height: 40px;
-        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .btn-social{
+        text-align: center;
+    }
+
+    .img-sobre img{
+        width: 100%;
+    }
+
+         /* PORTIFOLIO */
+    section.portfolio{
+        padding: 80px 8%;
+    }
+    
+    .img-port {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    section.portfolio .flex{
+        gap: 60px;
+    }
+
+    /* RODAPÉ */
+    footer .line-footer{
+        text-align: center;
     }
 }
