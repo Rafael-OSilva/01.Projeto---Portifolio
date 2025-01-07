@@ -132,16 +132,16 @@ header nav.menu-desktop ul li {
     text-align: right;
 }
 
-.menu-mobile nav.menu ul li a{
-    color: var(--cor4);
+.menu-mobile nav ul li a{
+    color: var(--cor0);
     font-size: 20px;
     font-weight: 300;
     padding: 20px 8%;
     display: block;
 }
 
-.menu-mobile nav.menu ul li a:hover{
-    background-color: var(--cor1);
+.menu-mobile nav ul li a:hover{
+    background-color: #0400ffa3;
     color: var(--cor5);
 }
 
