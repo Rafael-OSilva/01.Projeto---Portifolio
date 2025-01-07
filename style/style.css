@@ -119,7 +119,7 @@ header nav.menu-desktop ul li {
     text-align: right;
 }
 
-.menu-mobile nav ul li a{
+.menu-mobile nav.menu ul li a{
     color: var(--cor4);
     font-size: 20px;
     font-weight: 300;
@@ -127,7 +127,7 @@ header nav.menu-desktop ul li {
     display: block;
 }
 
-.menu-mobile nav ul li a:hover{
+.menu-mobile nav.menu ul li a:hover{
     background-color: var(--cor1);
     color: var(--cor5);
 }
