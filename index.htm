@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#" type="#">
+    <meta name="description"
+        content="Portfólio de Rafael Oliveira - Desenvolvedor Web, Sistemas e Manutenção de Computadores">
+    <meta name="keywords" content="portfolio, desenvolvedor, web design, manutenção de computadores, TI">
+    <meta name="author" content="Rafael Oliveira">
+
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style/style.css">
 
     <script src="JavaScript/menu.js" defer></script>
+    <script src="JavaScript/theme.js" defer></script>
 
-    <title>Rafael Oliveira</title>
-
+    <title>Rafael Oliveira | Desenvolvedor e Técnico em TI</title>
 </head>
+
 <body>
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <header>
         <div class="interface">
             <div class="logo">
-                <a href="logo">
-                    <img src="imagens/Impacto logo.png" alt="logo">
+                <a href="#inicio">
+                    <img src="imagens/Impacto logo.png" alt="Logo Rafael Oliveira" loading="lazy">
                 </a>
             </div><!--logo-->
-            <nav class="menu-desktop">
+
+            <nav class="menu-desktop" aria-label="Navegação principal">
                 <ul>
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#espec">Especialidades</a></li>
@@ -28,21 +40,26 @@
                     <li><a href="#prt">Projetos</a></li>
                 </ul>
             </nav>
+
             <div class="btn-contato">
                 <a href="#cont">
                     <button>Contato</button>
                 </a>
             </div><!--btn-contato-->
 
-            <div class="btn-abrir-menu" id="btn-menu">
+            <button class="toggle-theme" aria-label="Alternar tema">
+                <i class="bi bi-sun-fill"></i>
+            </button>
+
+            <div class="btn-abrir-menu" id="btn-menu" aria-label="Abrir menu mobile">
                 <i class="bi bi-list"></i>
             </div><!--btn-abrir-menu-->
 
-            <div class="menu-mobile" id="menu-mobile">
+            <div class="menu-mobile" id="menu-mobile" aria-label="Menu mobile">
                 <div class="btn-fechar">
-                    <i class="bi bi-x-diamond-fill"></i>
+                    <i class="bi bi-x-diamond-fill" aria-label="Fechar menu mobile"></i>
                 </div>
-            
+
                 <nav>
                     <ul>
                         <li><a href="#inicio">Início</a></li>
@@ -52,29 +69,29 @@
                         <li><a href="#cont">Contato</a></li>
                     </ul>
                 </nav>
-            
             </div><!--menu-mobile-->
-            
-            <div class="overlay-menu" id="overlay-menu"> </div>
 
+            <div class="overlay-menu" id="overlay-menu"></div>
         </div><!--interface-->
     </header>
-    
+
     <main>
         <section id="inicio" class="topo-do-site">
             <div class="interface">
                 <div class="flex">
                     <div class="txt-topo-site">
-                        <h1>TRANSFORMANDO LINHAS DE CÓDGO EM SOLUÇÕES QUE FAZEM A DIFERENÇA<span>.</span></h1>
-                        <P>Pronto para alavancar suas redes sociais ou dar o primeiro passo no mercado WEB? <br> Vamos transformar suas ideias em realidade!</P>
+                        <h1>TRANSFORMANDO LINHAS DE CÓDIGO EM SOLUÇÕES QUE FAZEM A DIFERENÇA<span>.</span></h1>
+                        <p>Pronto para alavancar suas redes sociais ou dar o primeiro passo no mercado WEB? <br> Vamos
+                            transformar suas ideias em realidade!</p>
                         <div class="btn-contato">
-                            <a href="#">
+                            <a href="#cont">
                                 <button>Entre Em Contato</button>
                             </a>
                         </div>
                     </div><!--txt-topo-site-->
+
                     <div class="img-topo-site">
-                        <img src="imagens/Design sem nome.jpg" alt="Rafael Oliveira Da Silva">
+                        <img src="imagens/Design sem nome.jpg" alt="Rafael Oliveira - Desenvolvedor" loading="eager">
                     </div><!--img-topo-site-->
                 </div><!--flex-->
             </div><!--interface-->
@@ -82,25 +99,35 @@
 
         <section id="espec" class="especialidades">
             <div class="interface">
-                <h2 class="titulo">MINHAS <SPAN>ESPECIALIDADES.</SPAN></h2>
+                <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
                 <div class="flex">
-                    <DIV class="especialidades-box">
-                        <i class="bi bi-code"></i> 
+                    <div class="especialidades-box">
+                        <i class="bi bi-code" aria-hidden="true"></i>
                         <h3>Criação de Websites</h3>
-                        <p>Especialista em desenvolvimento de websites, com experiência na criação de soluções modernas, responsivas e otimizadas para atender às necessidades dos clientes. Focado no uso de tecnologias como HTML, CSS, JavaScript e frameworks modernos, entrego sites que combinam design atraente e funcionalidade eficiente.</p>
-                    </DIV><!--ESPECIALIDADES-BOX-->
-                    
-                    <DIV class="especialidades-box">
-                        <i class="bi bi-cast"></i>
-                        <h3>Manutenção de Computadores</h3>
-                        <p>Especializado em diagnóstico, reparo e otimização de sistemas computacionais. Experiência em solução de problemas de hardware e software, incluindo substituição de componentes, instalação de sistemas operacionais, remoção de vírus e recuperação de dados. Comprometido em garantir o funcionamento eficiente e seguro dos equipamentos, proporcionando suporte técnico personalizado e orientações para prevenção de futuros problemas.</p>
-                    </DIV><!--ESPECIALIDADES-BOX-->
+                        <p>Especialista em desenvolvimento de websites, com experiência na criação de soluções modernas,
+                            responsivas e otimizadas para atender às necessidades dos clientes. Focado no uso de
+                            tecnologias como HTML, CSS, JavaScript e frameworks modernos, entrego sites que combinam
+                            design atraente e funcionalidade eficiente.</p>
+                    </div><!--ESPECIALIDADES-BOX-->
 
-                    <DIV class="especialidades-box">
-                        <i class="bi bi-cart4"></i>
+                    <div class="especialidades-box">
+                        <i class="bi bi-cast" aria-hidden="true"></i>
+                        <h3>Manutenção de Computadores</h3>
+                        <p>Especializado em diagnóstico, reparo e otimização de sistemas computacionais. Experiência em
+                            solução de problemas de hardware e software, incluindo substituição de componentes,
+                            instalação de sistemas operacionais, remoção de vírus e recuperação de dados. Comprometido
+                            em garantir o funcionamento eficiente e seguro dos equipamentos.</p>
+                    </div><!--ESPECIALIDADES-BOX-->
+
+                    <div class="especialidades-box">
+                        <i class="bi bi-cart4" aria-hidden="true"></i>
                         <h3>Desenvolvedor de Sistemas</h3>
-                        <p>Experiência no desenvolvimento de sistemas robustos e escaláveis, utilizando tecnologias modernas e boas práticas de programação. Domínio em análise de requisitos, modelagem de banco de dados, desenvolvimento back-end e front-end, além de integração de APIs. Comprometido com a entrega de soluções eficientes, seguras e alinhadas às necessidades do cliente, sempre buscando inovação e qualidade no código.</p>
-                    </DIV><!--ESPECIALIDADES-BOX-->
+                        <p>Experiência no desenvolvimento de sistemas robustos e escaláveis, utilizando tecnologias
+                            modernas e boas práticas de programação. Domínio em análise de requisitos, modelagem de
+                            banco de dados, desenvolvimento back-end e front-end, além de integração de APIs.
+                            Comprometido com a entrega de soluções eficientes, seguras e alinhadas às necessidades do
+                            cliente.</p>
+                    </div><!--ESPECIALIDADES-BOX-->
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--especialidades-->
@@ -109,17 +136,28 @@
             <div class="interface">
                 <div class="flex">
                     <div class="img-sobre">
-                        <img src="imagens/Foto s.jpg" alt="">
+                        <img src="imagens/Foto s.jpg" alt="Rafael Oliveira - Perfil" loading="lazy">
                     </div><!--img-sobre-->
 
                     <div class="txt-sobre">
-                        <h2>MUITO PRAZER, <span>SOU RAFAEL OLIEVIRA.</span></h2>
-                        <P>Há mais de 6 anos atuando na área de tecnologia, minha expertise abrange a criação de websites e a manutenção de computadores, sempre buscando entregar soluções eficientes e de alta qualidade. Atualmente, integro a equipe de desenvolvimento web e de sistemas do Exército, onde aplico meus conhecimentos em programação e infraestrutura para contribuir com projetos estratégicos.</P>
-                        <p>Possuo uma comunicação clara e eficaz, o que me permite colaborar de forma produtiva com equipes multidisciplinares. Minha curiosidade incessante pela tecnologia me mantém sempre atualizado sobre as últimas tendências e linguagens de programação, garantindo que minhas soluções estejam alinhadas com as melhores práticas do mercado. <br>Acredito que a tecnologia é uma ferramenta poderosa para transformar ideias em realidade, e é essa paixão que me motiva a enfrentar novos desafios e buscar constantemente o crescimento profissional.</p>
+                        <h2>MUITO PRAZER, <span>SOU RAFAEL OLIVEIRA.</span></h2>
+                        <p>Há mais de 6 anos atuando na área de tecnologia, minha expertise abrange a criação de
+                            websites e a manutenção de computadores, sempre buscando entregar soluções eficientes e de
+                            alta qualidade. Atualmente, integro a equipe de desenvolvimento web e de sistemas do
+                            Exército, onde aplico meus conhecimentos em programação e infraestrutura para contribuir com
+                            projetos estratégicos.</p>
+                        <p>Possuo uma comunicação clara e eficaz, o que me permite colaborar de forma produtiva com
+                            equipes multidisciplinares. Minha curiosidade incessante pela tecnologia me mantém sempre
+                            atualizado sobre as últimas tendências e linguagens de programação, garantindo que minhas
+                            soluções estejam alinhadas com as melhores práticas do mercado.</p>
+
                         <div class="btn-social">
-                            <a href="#"><button><i class="bi bi-instagram"></i></button></a>
-                            <a href="#"><button><i class="bi bi-whatsapp"></i></button></a>
-                            <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+                            <a href="https://instagram.com/seuuser" target="_blank" rel="noopener noreferrer"><button
+                                    aria-label="Instagram"><i class="bi bi-instagram"></i></button></a>
+                            <a href="https://wa.me/seunumero" target="_blank" rel="noopener noreferrer"><button
+                                    aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></button></a>
+                            <a href="https://linkedin.com/in/seuuser" target="_blank" rel="noopener noreferrer"><button
+                                    aria-label="LinkedIn"><i class="bi bi-linkedin"></i></button></a>
                         </div><!--btn-social-->
                     </div><!--txt-sobre-->
                 </div><!--flex-->
@@ -128,26 +166,60 @@
 
         <section id="prt" class="portfolio">
             <div class="interface">
-                <h2 class="titulo">MEU <SPAN>PORTFÓLIO.</SPAN></h2>
+                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
                 <div class="flex">
-                    <div class="img-port" style="background-image: url(imagens/imagem.jpg);"><div class="overlay">Projeto 1</div></div>
-                    <div class="img-port" style="background-image: url(imagens/imagem.jpg);"><div class="overlay">Projeto 2</div></div>
-                    <div class="img-port" style="background-image: url(imagens/imagem.jpg);"><div class="overlay">Projeto 3</div></div>
+                    <a href="link-para-projeto1" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
+                            <div class="overlay">Website Corporativo <span>Ver Projeto</span></div>
+                        </div>
+                    </a>
+
+                    <a href="link-para-projeto2" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
+                            <div class="overlay">Sistema de Gestão <span>Ver Projeto</span></div>
+                        </div>
+                    </a>
+
+                    <a href="link-para-projeto3" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
+                            <div class="overlay">Loja Virtual <span>Ver Projeto</span></div>
+                        </div>
+                    </a>
                 </div><!--flex-->
+
+                <div class="btn-portfolio">
+                    <a href="#" class="btn-ver-mais">Ver Todos os Projetos</a>
+                </div>
             </div><!--interface-->
         </section><!--portfolio-->
 
         <section id="cont" class="formulario">
-          <div class="interface">
-            <h2 class="titulo">FALA <SPAN>COMIGO.</SPAN></h2>
-            <form action="">
-                <input type="text" name="" id="" placeholder="Seu nome completo:" required>
-                <input type="text" name="" id="" placeholder="Seu email:" required>
-                <input type="text" name="" id="" placeholder="Seu celular:">
-                <textarea name="" id="" placeholder="sua mensagem" required></textarea>
-                <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
-            </form>
-          </div><!--interface-->
+            <div class="interface">
+                <h2 class="titulo">FALA <span>COMIGO.</span></h2>
+                <form action="enviar.php" method="POST">
+                    <div class="input-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo:" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Seu email:" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="celular">Celular:</label>
+                        <input type="tel" id="celular" name="celular" placeholder="Seu celular:">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem" required></textarea>
+                    </div>
+
+                    <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
+                </form>
+            </div><!--interface-->
         </section><!--formulario-->
     </main>
 
@@ -156,22 +228,37 @@
             <div class="line-footer">
                 <div class="flex">
                     <div class="logo-footer">
-                        <img src="imagens/Impacto logo.png" alt="logo">
+                        <img src="imagens/Impacto logo.png" alt="Logo Rafael Oliveira" loading="lazy">
                     </div><!--logo-footer-->
                     <div class="btn-social">
-                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
-                        <a href="#"><button><i class="bi bi-whatsapp"></i></button></a>
-                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+                        <a href="https://instagram.com/seuuser" target="_blank" rel="noopener noreferrer"><button
+                                aria-label="Instagram"><i class="bi bi-instagram"></i></button></a>
+                        <a href="https://wa.me/seunumero" target="_blank" rel="noopener noreferrer"><button
+                                aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></button></a>
+                        <a href="https://linkedin.com/in/seuuser" target="_blank" rel="noopener noreferrer"><button
+                                aria-label="LinkedIn"><i class="bi bi-linkedin"></i></button></a>
                     </div><!--btn-social-->
-            </div><!--flex-->
+                </div><!--flex-->
             </div><!--line-footer-->
 
             <div class="line-footer borda">
-                <p><i class="bi bi-envelope-at"></i> <a href="mailto:rafinha101419.silva@gmail.com">rafinha101419.silva@gmail.com</a>
-                </p>
+                <p><i class="bi bi-envelope-at"></i> <a
+                        href="mailto:rafinha101419.silva@gmail.com">rafinha101419.silva@gmail.com</a></p>
+                <p class="copy">&copy; 2023 Rafael Oliveira. Todos os direitos reservados.</p>
             </div><!--line-footer-->
         </div><!--interface-->
     </footer>
 
+    <a href="#inicio" class="btn-voltar-topo" aria-label="Voltar ao topo">
+        <i class="bi bi-arrow-up-circle-fill"></i>
+    </a>
+
+    <script>
+        // Remover loader quando a página carregar
+        window.addEventListener('load', function () {
+            document.querySelector('.loader').classList.add('hidden');
+        });
+    </script>
 </body>
+
 </html>
