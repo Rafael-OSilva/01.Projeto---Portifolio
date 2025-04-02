@@ -17,16 +17,3 @@ menuLinks.forEach(link => {
     link.addEventListener('click', toggleMenu);
 });
 
-// Versão simplificada das partículas
-document.addEventListener('DOMContentLoaded', function() {
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 50, density: { enable: true, value_area: 800 } },
-                color: { value: "#0028FF" },
-                line_linked: { enable: true, distance: 150, color: "#0028FF", opacity: 0.3, width: 1 },
-                move: { enable: true, speed: 1.5 }
-            }
-        });
-    }
-});
