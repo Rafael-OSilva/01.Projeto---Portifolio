@@ -1,49 +1,32 @@
+// Menu Mobile
+const btnMenu = document.getElementById('btn-menu');
+const menuMobile = document.getElementById('menu-mobile');
+const overlayMenu = document.getElementById('overlay-menu');
+
+function toggleMenu() {
+    menuMobile.classList.toggle('abrir-menu');
+}
+
+btnMenu.addEventListener('click', toggleMenu);
+overlayMenu.addEventListener('click', toggleMenu);
+
+// Fechar menu ao clicar em um link
+const menuLinks = document.querySelectorAll('.menu-mobile nav ul li a');
+
+menuLinks.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+});
+
+// Versão simplificada das partículas
 document.addEventListener('DOMContentLoaded', function() {
-    const btnMenu = document.getElementById('btn-menu');
-    const menu = document.getElementById('menu-mobile');
-    const overlay = document.getElementById('overlay-menu');
-    const btnFechar = document.querySelector('.btn-fechar');
-    const menuLinks = document.querySelectorAll('.menu-mobile nav ul li a');
-    
-    // Função para abrir o menu
-    function abrirMenu() {
-        menu.classList.add('abrir-menu');
-        overlay.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Impede o scroll
-        btnMenu.setAttribute('aria-expanded', 'true');
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 50, density: { enable: true, value_area: 800 } },
+                color: { value: "#0028FF" },
+                line_linked: { enable: true, distance: 150, color: "#0028FF", opacity: 0.3, width: 1 },
+                move: { enable: true, speed: 1.5 }
+            }
+        });
     }
-    
-    // Função para fechar o menu
-    function fecharMenu() {
-        menu.classList.remove('abrir-menu');
-        overlay.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restaura o scroll
-        btnMenu.setAttribute('aria-expanded', 'false');
-        btnMenu.focus(); // Retorna o foco para o botão de menu
-    }
-    
-    // Event listeners
-    btnMenu.addEventListener('click', abrirMenu);
-    btnFechar.addEventListener('click', fecharMenu);
-    overlay.addEventListener('click', fecharMenu);
-    
-    // Fechar menu ao clicar em qualquer link
-    menuLinks.forEach(link => {
-        link.addEventListener('click', fecharMenu);
-    });
-    
-    // Fechar menu com tecla ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && menu.classList.contains('abrir-menu')) {
-            fecharMenu();
-        }
-    });
-    
-    // Acessibilidade - controle via teclado
-    btnMenu.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            abrirMenu();
-        }
-    });
 });
