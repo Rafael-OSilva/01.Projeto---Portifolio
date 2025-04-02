@@ -79,109 +79,61 @@ function initializeTheme() {
     });
 }
 
-// Gerenciamento das partículas
-let particlesInitialized = false;
-
-function initParticles() {
+// Adicione esta função no início do arquivo (antes da função initializeTheme)
+function getBlueTheme() {
+    return document.body.classList.contains('light-mode') 
+      ? { particle: '#3a86ff', line: '#1a73e8', opacity: 0.4 } // Tema claro
+      : { particle: '#0028FF', line: '#0044ff', opacity: 0.3 }; // Tema escuro
+  }
+  
+  // Atualize a função initParticles() com estas configurações:
+  function initParticles() {
     if (typeof particlesJS !== 'undefined' && !particlesInitialized) {
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 60, density: { enable: true, value_area: 800 } },
-                color: { value: getParticleColor() },
-                shape: { type: 'circle' },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: getParticleColor(),
-                    opacity: 0.3,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 1.5,
-                    direction: 'none',
-                    random: true,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'grab' },
-                    onclick: { enable: true, mode: 'push' },
-                    resize: true
-                },
-                modes: {
-                    grab: { distance: 140, line_linked: { opacity: 0.8 } },
-                    push: { particles_nb: 4 }
-                }
-            },
-            retina_detect: true
-        });
-        
-        particlesInitialized = true;
-    }
-}
-
-// Função para obter a cor das partículas baseada no tema atual
-function getParticleColor() {
-    return document.body.classList.contains('light-mode') ? '#285aa1' : '#0028FF';
-}
-
-// Atualiza as partículas quando o tema muda
-function updateParticlesTheme(isLightMode) {
-    if (window.pJSDom && window.pJSDom.length > 0) {
-        const newColor = isLightMode ? '#285aa1' : '#0028FF';
-        pJSDom[0].pJS.particles.color.value = newColor;
-        pJSDom[0].pJS.particles.line_linked.color = newColor;
-        pJSDom[0].pJS.fn.particlesRefresh();
-    }
-}
-
-// Botão voltar ao topo
-function setupBackToTopButton() {
-    const btnTopo = document.querySelector('.btn-voltar-topo');
-    
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            btnTopo.classList.add('visible');
-        } else {
-            btnTopo.classList.remove('visible');
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 70, density: { enable: true, value_area: 800 } },
+          color: { value: getBlueTheme().particle },
+          shape: { type: 'circle' },
+          opacity: { value: 0.7, random: false, anim: { enable: false } },
+          size: { value: 2, random: false, anim: { enable: false } },
+          line_linked: {
+            enable: true,
+            distance: 120,
+            color: getBlueTheme().line,
+            opacity: getBlueTheme().opacity,
+            width: 2
+          },
+          move: {
+            enable: true,
+            speed: 1.2,
+            direction: 'none',
+            random: true,
+            straight: false,
+            out_mode: 'out'
+          }
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: { enable: true, mode: 'grab' },
+            onclick: { enable: true, mode: 'push' },
+            resize: true
+          }
         }
-    });
-    
-    btnTopo.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// Inicialização quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', function() {
-    initializeTheme();
-    initParticles();
-    setupBackToTopButton();
-});
-
-// Redimensionamento responsivo
-window.addEventListener('resize', function() {
-    if (window.pJSDom && window.pJSDom.length > 0) {
-        pJSDom[0].pJS.fn.vendors.destroypJS();
-        particlesInitialized = false;
-        initParticles();
+      });
+      particlesInitialized = true;
     }
-});
+  }
+  
+  // Atualize a função updateParticlesTheme():
+  function updateParticlesTheme(isLightMode) {
+    if (window.pJSDom && window.pJSDom.length > 0) {
+      const theme = getBlueTheme();
+      const pJS = pJSDom[0].pJS;
+      
+      pJS.particles.color.value = theme.particle;
+      pJS.particles.line_linked.color = theme.line;
+      pJS.particles.line_linked.opacity = theme.opacity;
+      pJS.fn.particlesRefresh();
+    }
+  }
