@@ -14,7 +14,7 @@ function getParticleConfig() {
   return {
     particles: {
       number: {
-        value: 45,  // Quantidade (reduzida para melhor performance)
+        value: 80,  // Quantidade (reduzida para melhor performance)
         density: {
           enable: true,
           value_area: 800

@@ -165,63 +165,81 @@
             </div><!--interface-->
         </section><!--sobre-->
 
-        <section id="prt" class="portfolio">
-            <div class="interface">
-                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
-                <div class="flex">
-                    <a href="link-para-projeto1" target="_blank" rel="noopener noreferrer" class="project-link">
-                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
-                            <div class="overlay">Website Corporativo <span>Ver Projeto</span></div>
-                        </div>
-                    </a>
-
-                    <a href="link-para-projeto2" target="_blank" rel="noopener noreferrer" class="project-link">
-                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
-                            <div class="overlay">Sistema de Gestão <span>Ver Projeto</span></div>
-                        </div>
-                    </a>
-
-                    <a href="link-para-projeto3" target="_blank" rel="noopener noreferrer" class="project-link">
-                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
-                            <div class="overlay">Loja Virtual <span>Ver Projeto</span></div>
-                        </div>
-                    </a>
-                </div><!--flex-->
-
-                <div class="btn-portfolio">
-                    <a href="#" class="btn-ver-mais">Ver Todos os Projetos</a>
-                </div>
-            </div><!--interface-->
-        </section><!--portfolio-->
-
         <section id="cont" class="formulario">
             <div class="interface">
                 <h2 class="titulo">FALA <span>COMIGO.</span></h2>
-                <form action="enviar.php" method="POST">
-                    <div class="input-group">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo:" required>
+                
+                <form id="form-contato" class="form-contato" autocomplete="on">
+                    <div class="input-grid">
+                        <!-- Campo Nome com autocomplete -->
+                        <div class="input-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome" 
+                                   autocomplete="name" required
+                                   aria-describedby="nome-help">
+                            <small id="nome-help" class="input-help">Como gostaria de ser chamado</small>
+                        </div>
+                        
+                        <!-- Campo Email com validação -->
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" 
+                                   placeholder="seu@email.com" 
+                                   autocomplete="email" required
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            <div class="input-feedback"></div>
+                        </div>
                     </div>
-
-                    <div class="input-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Seu email:" required>
+                    
+                    <div class="input-grid">
+                        <!-- Campo Telefone com máscara -->
+                        <div class="input-group">
+                            <label for="telefone">Telefone/WhatsApp</label>
+                            <input type="tel" id="telefone" name="telefone" 
+                                   placeholder="(00) 00000-0000"
+                                   autocomplete="tel">
+                        </div>
+                        
+                        <!-- Campo Assunto com sugestões -->
+                        <div class="input-group">
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" name="assunto" 
+                                   placeholder="Sobre o que deseja falar?"
+                                   autocomplete="off" list="assuntos">
+                            <datalist id="assuntos">
+                                <option value="Orçamento de projeto">
+                                <option value="Oportunidade de trabalho">
+                                <option value="Dúvida técnica">
+                                <option value="Parceria">
+                                <option value="Outro assunto">
+                            </datalist>
+                        </div>
                     </div>
-
+                    
+                    <!-- Campo Mensagem com contador -->
                     <div class="input-group">
-                        <label for="celular">Celular:</label>
-                        <input type="tel" id="celular" name="celular" placeholder="Seu celular:">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" 
+                                  placeholder="Descreva sua necessidade..." 
+                                  required minlength="20" maxlength="500"></textarea>
+                        <div class="textarea-footer">
+                            <span class="char-counter"><span id="char-count">0</span>/500</span>
+                            <span class="min-chars">Mínimo de 20 caracteres</span>
+                        </div>
                     </div>
-
-                    <div class="input-group">
-                        <label for="mensagem">Mensagem:</label>
-                        <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem" required></textarea>
-                    </div>
-
-                    <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
+                    
+                    <!-- Feedback do formulário -->
+                    <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+                    
+                    <button type="submit" class="btn-enviar" aria-busy="false">
+                        <span class="btn-text">ENVIAR MENSAGEM</span>
+                        <span class="btn-loading">
+                            <i class="bi bi-arrow-repeat"></i> Enviando...
+                        </span>
+                    </button>
                 </form>
-            </div><!--interface-->
-        </section><!--formulario-->
+            </div>
+        </section>
     </main>
 
     <footer>
