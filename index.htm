@@ -165,81 +165,79 @@
             </div><!--interface-->
         </section><!--sobre-->
 
+        <!DOCTYPE html>
+        <html lang="pt-br">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Rafael Oliveira | Contato</title>
+            <link rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+            <link rel="stylesheet" href="css/style.css">
+        </head>
+
+        <!-- Seção de Formulário de Contato -->
         <section id="cont" class="formulario">
             <div class="interface">
                 <h2 class="titulo">FALA <span>COMIGO.</span></h2>
-                
-                <form id="form-contato" class="form-contato" autocomplete="on">
+
+                <form id="form-contato" class="form-contato">
                     <div class="input-grid">
-                        <!-- Campo Nome com autocomplete -->
                         <div class="input-group">
-                            <label for="nome">Nome Completo</label>
-                            <input type="text" id="nome" name="nome" placeholder="Seu nome" 
-                                   autocomplete="name" required
-                                   aria-describedby="nome-help">
-                            <small id="nome-help" class="input-help">Como gostaria de ser chamado</small>
+                            <input type="text" id="nome" name="nome" placeholder=" " required>
+                            <label for="nome" class="floating-label">Nome Completo</label>
+                            <div class="input-feedback"></div>
                         </div>
-                        
-                        <!-- Campo Email com validação -->
+
                         <div class="input-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" 
-                                   placeholder="seu@email.com" 
-                                   autocomplete="email" required
-                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email" class="floating-label">Seu Melhor Email</label>
                             <div class="input-feedback"></div>
                         </div>
                     </div>
-                    
+
                     <div class="input-grid">
-                        <!-- Campo Telefone com máscara -->
                         <div class="input-group">
-                            <label for="telefone">Telefone/WhatsApp</label>
-                            <input type="tel" id="telefone" name="telefone" 
-                                   placeholder="(00) 00000-0000"
-                                   autocomplete="tel">
+                            <input type="tel" id="telefone" name="telefone" placeholder=" ">
+                            <label for="telefone" class="floating-label">Telefone/WhatsApp</label>
                         </div>
-                        
-                        <!-- Campo Assunto com sugestões -->
+
                         <div class="input-group">
-                            <label for="assunto">Assunto</label>
-                            <input type="text" id="assunto" name="assunto" 
-                                   placeholder="Sobre o que deseja falar?"
-                                   autocomplete="off" list="assuntos">
+                            <input type="text" id="assunto" name="assunto" placeholder=" " list="assuntos">
+                            <label for="assunto" class="floating-label">Assunto</label>
                             <datalist id="assuntos">
-                                <option value="Orçamento de projeto">
-                                <option value="Oportunidade de trabalho">
-                                <option value="Dúvida técnica">
-                                <option value="Parceria">
-                                <option value="Outro assunto">
+                                <option value="Orçamento">
+                                <option value="Proposta Comercial">
+                                <option value="Dúvida Técnica">
+                                <option value="Trabalhe Conosco">
                             </datalist>
                         </div>
                     </div>
-                    
-                    <!-- Campo Mensagem com contador -->
+
                     <div class="input-group">
-                        <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" 
-                                  placeholder="Descreva sua necessidade..." 
-                                  required minlength="20" maxlength="500"></textarea>
-                        <div class="textarea-footer">
-                            <span class="char-counter"><span id="char-count">0</span>/500</span>
-                            <span class="min-chars">Mínimo de 20 caracteres</span>
-                        </div>
+                        <textarea id="mensagem" name="mensagem" placeholder=" " required minlength="20"
+                            maxlength="500"></textarea>
+                        <label for="mensagem" class="floating-label">Sua Mensagem</label>
+                        <span class="char-counter"><span id="char-count">0</span>/500</span>
+                        <div class="input-feedback"></div>
                     </div>
-                    
-                    <!-- Feedback do formulário -->
-                    <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
-                    
-                    <button type="submit" class="btn-enviar" aria-busy="false">
-                        <span class="btn-text">ENVIAR MENSAGEM</span>
-                        <span class="btn-loading">
+
+                    <div id="form-feedback" class="form-feedback"></div>
+
+                    <button type="submit" class="btn-enviar">
+                        <span class="text">ENVIAR MENSAGEM</span>
+                        <span class="loading">
                             <i class="bi bi-arrow-repeat"></i> Enviando...
                         </span>
                     </button>
                 </form>
             </div>
         </section>
+
+        <script src="js/formulario.js"></script>
+
+        </html>
     </main>
 
     <footer>

@@ -1,22 +1,21 @@
 <?php
-// Define o cabeçalho para retornar JSON
 header('Content-Type: application/json');
 
-// Configura a resposta padrão
+// Configurações básicas
 $response = [
     'success' => false,
-    'message' => '',
+    'message' => 'Mensagem não enviada',
     'errors' => []
 ];
 
-// Verifica se a requisição é POST
+// Verifica se é uma requisição POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $response['message'] = 'Método não permitido';
     echo json_encode($response);
     exit;
 }
 
-// Sanitiza e valida os dados de entrada
+// Sanitiza os dados
 $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING) ?? '';
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL) ?? '';
 $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_STRING) ?? '';
@@ -46,10 +45,8 @@ if (!empty($response['errors'])) {
 }
 
 // Configurações do e-mail
-$to = 'rafinha101419.silva@gmail.com'; // Seu e-mail
+$to = 'rafinha101419.silva@gmail.com';
 $subject = 'Contato do Portfólio: ' . ($assunto ?: 'Sem assunto');
-
-// Cabeçalhos do e-mail
 $headers = "From: $nome <$email>\r\n";
 $headers .= "Reply-To: $email\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
@@ -61,13 +58,11 @@ $emailContent = "
 <html>
 <head>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background-color: #0028FF; color: white; padding: 15px; text-align: center; }
-        .content { padding: 20px; background-color: #f9f9f9; border: 1px solid #ddd; }
-        .footer { margin-top: 20px; font-size: 0.8em; color: #777; text-align: center; }
-        .detalhe { margin-bottom: 10px; }
-        .detalhe strong { display: inline-block; width: 80px; }
+        .header { background-color: #0028FF; color: white; padding: 15px 20px; }
+        .content { padding: 20px; background-color: #f9f9f9; }
+        .footer { margin-top: 20px; font-size: 0.8em; color: #777; }
     </style>
 </head>
 <body>
@@ -76,45 +71,31 @@ $emailContent = "
             <h2>Novo contato do seu portfólio</h2>
         </div>
         <div class='content'>
-            <div class='detalhe'><strong>Nome:</strong> $nome</div>
-            <div class='detalhe'><strong>Email:</strong> $email</div>
-            <div class='detalhe'><strong>Telefone:</strong> " . ($telefone ?: 'Não informado') . "</div>
-            <div class='detalhe'><strong>Assunto:</strong> " . ($assunto ?: 'Não especificado') . "</div>
-            <div class='detalhe'><strong>Mensagem:</strong></div>
+            <p><strong>Nome:</strong> $nome</p>
+            <p><strong>Email:</strong> $email</p>
+            <p><strong>Telefone:</strong> " . ($telefone ?: 'Não informado') . "</p>
+            <p><strong>Assunto:</strong> " . ($assunto ?: 'Não especificado') . "</p>
+            <p><strong>Mensagem:</strong></p>
             <p>" . nl2br($mensagem) . "</p>
         </div>
         <div class='footer'>
-            Mensagem enviada em " . date('d/m/Y H:i:s') . " através do formulário de contato
+            Mensagem enviada em " . date('d/m/Y H:i:s') . "
         </div>
     </div>
 </body>
 </html>
 ";
 
-// Versão texto simples para clientes de e-mail que não suportam HTML
-$textContent = "Novo contato do portfólio:\n\n";
-$textContent .= "Nome: $nome\n";
-$textContent .= "Email: $email\n";
-$textContent .= "Telefone: " . ($telefone ?: 'Não informado') . "\n";
-$textContent .= "Assunto: " . ($assunto ?: 'Não especificado') . "\n";
-$textContent .= "Mensagem:\n" . $mensagem . "\n\n";
-$textContent .= "Enviado em: " . date('d/m/Y H:i:s');
-
 // Envia o e-mail
 $mailSent = mail($to, $subject, $emailContent, $headers);
 
-// Verifica se o e-mail foi enviado
 if ($mailSent) {
     $response['success'] = true;
     $response['message'] = 'Mensagem enviada com sucesso!';
-    
-    // Envia também a versão texto (opcional)
-    mail($to, $subject, $textContent, $headers);
 } else {
     $response['message'] = 'Erro ao enviar mensagem. Por favor, tente novamente mais tarde.';
     error_log("Falha no envio de e-mail para: $to");
 }
 
-// Retorna a resposta em JSON
 echo json_encode($response);
-exit;
+?>

@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('form-contato');
-    const telefoneInput = document.getElementById('telefone');
-    const mensagemTextarea = document.getElementById('mensagem');
     const charCount = document.getElementById('char-count');
+    const mensagem = document.getElementById('mensagem');
     const formFeedback = document.getElementById('form-feedback');
     const btnEnviar = form.querySelector('.btn-enviar');
 
     // Máscara para telefone
-    if (telefoneInput) {
-        telefoneInput.addEventListener('input', function(e) {
+    const telefone = document.getElementById('telefone');
+    if (telefone) {
+        telefone.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             
             if (value.length > 11) {
@@ -29,45 +29,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Contador de caracteres
-    if (mensagemTextarea && charCount) {
-        mensagemTextarea.addEventListener('input', function() {
+    if (mensagem && charCount) {
+        mensagem.addEventListener('input', function() {
             const count = this.value.length;
             charCount.textContent = count;
             
-            const counter = this.nextElementSibling.querySelector('.char-counter');
-            
             if (count > 450) {
-                counter.classList.add('error');
-                counter.classList.remove('warning');
+                charCount.style.color = 'var(--cor-erro)';
             } else if (count > 400) {
-                counter.classList.add('warning');
-                counter.classList.remove('error');
+                charCount.style.color = 'var(--cor-alerta)';
             } else {
-                counter.classList.remove('warning', 'error');
+                charCount.style.color = 'var(--cor-texto-claro)';
             }
         });
     }
 
     // Validação em tempo real
     form.querySelectorAll('input, textarea').forEach(input => {
-        input.addEventListener('blur', function() {
-            validateField(this);
-        });
+        input.addEventListener('blur', validateField);
+        input.addEventListener('input', clearError);
     });
 
-    function validateField(field) {
-        const feedback = field.parentNode.querySelector('.input-feedback');
-        if (!feedback) return;
+    function validateField(e) {
+        const field = e.target;
+        const feedback = field.closest('.input-group').querySelector('.input-feedback');
         
         if (field.validity.valid) {
             feedback.textContent = '';
             field.classList.remove('invalid');
         } else {
-            showFieldError(field, feedback);
+            showError(field, feedback);
         }
     }
 
-    function showFieldError(field, feedback) {
+    function showError(field, feedback) {
         field.classList.add('invalid');
         
         if (field.validity.valueMissing) {
@@ -76,10 +71,16 @@ document.addEventListener('DOMContentLoaded', function() {
             feedback.textContent = 'Formato inválido';
         } else if (field.validity.tooShort) {
             feedback.textContent = `Mínimo de ${field.minLength} caracteres`;
-        } else if (field.validity.tooLong) {
-            feedback.textContent = `Máximo de ${field.maxLength} caracteres`;
-        } else if (field.validity.patternMismatch) {
-            feedback.textContent = 'Formato não corresponde ao esperado';
+        }
+    }
+
+    function clearError(e) {
+        const field = e.target;
+        const feedback = field.closest('.input-group').querySelector('.input-feedback');
+        
+        if (field.validity.valid) {
+            feedback.textContent = '';
+            field.classList.remove('invalid');
         }
     }
 
@@ -88,27 +89,28 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         
         // Valida todos os campos
-        let formIsValid = true;
+        let isValid = true;
         form.querySelectorAll('input, textarea').forEach(input => {
-            validateField(input);
+            const event = new Event('blur');
+            input.dispatchEvent(event);
+            
             if (!input.validity.valid) {
-                formIsValid = false;
+                isValid = false;
             }
         });
         
-        if (!formIsValid) {
-            showFeedback('error', 'Por favor, preencha todos os campos corretamente');
+        if (!isValid) {
+            formFeedback.textContent = 'Por favor, preencha todos os campos corretamente';
+            formFeedback.className = 'form-feedback error';
+            formFeedback.scrollIntoView({ behavior: 'smooth' });
             return;
         }
         
-        // Configura estado de carregamento
-        btnEnviar.setAttribute('aria-busy', 'true');
-        btnEnviar.disabled = true;
+        // Configura estado de loading
+        btnEnviar.classList.add('loading');
         
         try {
             const formData = new FormData(form);
-            
-            // Simulação de envio (substitua pelo seu AJAX real)
             const response = await fetch('enviar.php', {
                 method: 'POST',
                 body: formData
@@ -117,34 +119,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
             
             if (result.success) {
-                showFeedback('success', result.message || 'Mensagem enviada com sucesso!');
                 form.reset();
+                formFeedback.textContent = result.message || 'Mensagem enviada com sucesso!';
+                formFeedback.className = 'form-feedback success';
                 charCount.textContent = '0';
             } else {
-                showFeedback('error', result.message || 'Erro ao enviar mensagem. Tente novamente.');
+                formFeedback.textContent = result.message || 'Erro ao enviar mensagem. Tente novamente.';
+                formFeedback.className = 'form-feedback error';
             }
         } catch (error) {
             console.error('Erro:', error);
-            showFeedback('error', 'Falha na conexão. Tente novamente mais tarde.');
+            formFeedback.textContent = 'Falha na conexão. Tente novamente mais tarde.';
+            formFeedback.className = 'form-feedback error';
         } finally {
-            btnEnviar.setAttribute('aria-busy', 'false');
-            btnEnviar.disabled = false;
+            btnEnviar.classList.remove('loading');
+            formFeedback.scrollIntoView({ behavior: 'smooth' });
         }
     });
-
-    function showFeedback(type, message) {
-        formFeedback.textContent = message;
-        formFeedback.className = `form-feedback ${type}`;
-        
-        // Rola até o feedback
-        formFeedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        
-        // Remove o feedback após 5 segundos
-        if (type === 'success') {
-            setTimeout(() => {
-                formFeedback.classList.remove('success');
-                formFeedback.textContent = '';
-            }, 5000);
-        }
-    }
 });
