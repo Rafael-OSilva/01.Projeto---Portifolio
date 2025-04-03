@@ -742,11 +742,6 @@ footer .borda {
   gap: 20px;
 }
 
-footer .logo-footer img {
-  max-width: 150px;
-  filter: brightness(0) invert(1);
-}
-
 .light-mode footer .logo-footer img {
   filter: none;
 }
