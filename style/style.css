@@ -591,10 +591,10 @@ section.formulario {
   background-color: transparent;
 }
 
-.input-group input:focus + .floating-label,
-.input-group input:not(:placeholder-shown) + .floating-label,
-.input-group textarea:focus + .floating-label,
-.input-group textarea:not(:placeholder-shown) + .floating-label {
+.input-group input:focus+.floating-label,
+.input-group input:not(:placeholder-shown)+.floating-label,
+.input-group textarea:focus+.floating-label,
+.input-group textarea:not(:placeholder-shown)+.floating-label {
   top: -10px;
   left: 15px;
   font-size: 0.8rem;
@@ -620,7 +620,8 @@ section.formulario {
   min-height: 18px;
 }
 
-input:valid, textarea:valid {
+input:valid,
+textarea:valid {
   border-color: var(--cor-sucesso);
 }
 
@@ -695,22 +696,22 @@ input:valid, textarea:valid {
 /* Responsividade */
 @media (max-width: 768px) {
   .input-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
-  
+
   .form-contato {
-      padding: 30px;
+    padding: 30px;
   }
 }
 
 @media (max-width: 480px) {
   .form-contato {
-      padding: 25px 15px;
+    padding: 25px 15px;
   }
 
   .input-group input,
   .input-group textarea {
-      padding: 12px 15px;
+    padding: 12px 15px;
   }
 }
 
@@ -1184,5 +1185,163 @@ section {
     font-size: 20px;
     bottom: 20px;
     right: 20px;
+  }
+}
+
+/* PORTFÓLIO */
+section.portfolio {
+  padding: 80px 4%;
+  background-color: var(--cor-fundo);
+  position: relative;
+}
+
+.portfolio .flex {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.project-link:hover {
+  transform: translateY(-10px);
+}
+
+.img-port {
+  width: 360px;
+  height: 460px;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 40, 255, 0.2);
+}
+
+.project-link:hover .img-port {
+  box-shadow: 0 15px 40px rgba(0, 40, 255, 0.4);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 40, 255, 0.9), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  color: white;
+}
+
+.overlay h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.overlay span {
+  display: block;
+  font-size: 16px;
+  font-weight: 300;
+  transform: translateY(20px);
+  transition: transform 0.3s ease 0.1s;
+  opacity: 0.9;
+}
+
+.tech-tags {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease 0.2s;
+}
+
+.tech-tags span {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.project-link:hover .overlay {
+  opacity: 1;
+}
+
+.project-link:hover .overlay h3,
+.project-link:hover .overlay span,
+.project-link:hover .tech-tags {
+  transform: translateY(0);
+}
+
+.btn-portfolio {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-ver-mais {
+  padding: 12px 50px;
+  font-size: 18px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-ver-mais i {
+  transition: transform 0.3s ease;
+}
+
+.btn-ver-mais:hover i {
+  transform: translateX(5px);
+}
+
+/* Responsividade */
+@media (max-width: 1020px) {
+  .img-port {
+    width: 100%;
+    max-width: 360px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio .flex {
+    gap: 20px;
+  }
+
+  .img-port {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .img-port {
+    height: 300px;
+    border-radius: 20px;
+  }
+
+  .overlay {
+    padding: 20px;
+  }
+
+  .overlay h3 {
+    font-size: 20px;
   }
 }

@@ -167,10 +167,71 @@
             </div><!--interface-->
         </section><!--sobre-->
 
+        <section id="prt" class="portfolio">
+            <div class="interface">
+                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
+                <div class="flex">
+                    <!-- Projeto 1 -->
+                    <a href="https://exemplo-projeto1.com" target="_blank" rel="noopener noreferrer"
+                        class="project-link">
+                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
+                            <div class="overlay">
+                                <h3>Website Corporativo</h3>
+                                <span>Ver Projeto</span>
+                                <div class="tech-tags">
+                                    <span>HTML/CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>Responsivo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Projeto 2 -->
+                    <a href="https://exemplo-projeto2.com" target="_blank" rel="noopener noreferrer"
+                        class="project-link">
+                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
+                            <div class="overlay">
+                                <h3>Sistema de Gestão</h3>
+                                <span>Ver Projeto</span>
+                                <div class="tech-tags">
+                                    <span>PHP</span>
+                                    <span>MySQL</span>
+                                    <span>Bootstrap</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Projeto 3 -->
+                    <a href="https://exemplo-projeto3.com" target="_blank" rel="noopener noreferrer"
+                        class="project-link">
+                        <div class="img-port" style="background-image: url(imagens/imagem.jpg);">
+                            <div class="overlay">
+                                <h3>Loja Virtual</h3>
+                                <span>Ver Projeto</span>
+                                <div class="tech-tags">
+                                    <span>WordPress</span>
+                                    <span>WooCommerce</span>
+                                    <span>SEO</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="btn-portfolio">
+                        <a href="portfolio-completo.html" class="btn-ver-mais">
+                            Ver Todos os Projetos
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div><!--interface-->
+        </section><!--portfolio-->
+
         <!-- Seção de Formulário de Contato -->
         <section id="cont" class="formulario">
             <div class="interface">
-                <h2 class="titulo">FALA <span>COMIGO.</span></h2>
+                <h2 class="titulo">FALE<span>COMIGO.</span></h2>
 
                 <form id="form-contato" class="form-contato">
                     <div class="input-grid">
@@ -227,45 +288,48 @@
 
         <script src="js/formulario.js"></script>
 
-<footer>
-    <div class="interface">
-        <div class="line-footer">
-            <div class="flex">
-                <div class="logo-footer">
-                    <img src="imagens/Impacto logo.png" alt="Logo Rafael Oliveira" loading="lazy">
-                </div><!--logo-footer-->
-                <div class="btn-social">
-                    <a href="https://instagram.com/rafa_oliveirabsb" target="_blank" rel="noopener noreferrer"><button
-                            aria-label="Instagram"><i class="bi bi-instagram"></i></button></a>
-                    <a href="https://wa.me/+5561984911180" target="_blank" rel="noopener noreferrer"><button
-                            aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></button></a>
-                    <a href="https://www.linkedin.com/in/rafaeloliveira0410" target="_blank" rel="noopener noreferrer"><button
-                            aria-label="LinkedIn"><i class="bi bi-linkedin"></i></button></a>
-                </div><!--btn-social-->
-            </div><!--flex-->
-        </div><!--line-footer-->
+        <footer>
+            <div class="interface">
+                <div class="line-footer">
+                    <div class="flex">
+                        <div class="logo-footer">
+                            <img src="imagens/Impacto logo.png" alt="Logo Rafael Oliveira" loading="lazy">
+                        </div><!--logo-footer-->
+                        <div class="btn-social">
+                            <a href="https://instagram.com/rafa_oliveirabsb" target="_blank"
+                                rel="noopener noreferrer"><button aria-label="Instagram"><i
+                                        class="bi bi-instagram"></i></button></a>
+                            <a href="https://wa.me/+5561984911180" target="_blank" rel="noopener noreferrer"><button
+                                    aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></button></a>
+                            <a href="https://www.linkedin.com/in/rafaeloliveira0410" target="_blank"
+                                rel="noopener noreferrer"><button aria-label="LinkedIn"><i
+                                        class="bi bi-linkedin"></i></button></a>
+                        </div><!--btn-social-->
+                    </div><!--flex-->
+                </div><!--line-footer-->
 
-        <div class="line-footer borda">
-            <p><i class="bi bi-envelope-at"></i> <a
-                    href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">rafinha101419.silva@gmail.com</a></p>
-            <p class="copy">&copy; 2023 Rafael Oliveira. Todos os direitos reservados.</p>
-        </div><!--line-footer-->
-    </div><!--interface-->
-</footer>
+                <div class="line-footer borda">
+                    <p><i class="bi bi-envelope-at"></i> <a
+                            href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">rafinha101419.silva@gmail.com</a>
+                    </p>
+                    <p class="copy">&copy; 2023 Rafael Oliveira. Todos os direitos reservados.</p>
+                </div><!--line-footer-->
+            </div><!--interface-->
+        </footer>
 
-<a href="#inicio" class="btn-voltar-topo" aria-label="Voltar ao topo">
-    <i class="bi bi-arrow-up-circle-fill"></i>
-</a>
+        <a href="#inicio" class="btn-voltar-topo" aria-label="Voltar ao topo">
+            <i class="bi bi-arrow-up-circle-fill"></i>
+        </a>
 
-<script>
-    // Remover loader quando a página carregar
-    window.addEventListener('load', function () {
-        document.querySelector('.loader').classList.add('hidden');
-    });
-</script>
-<!-- Adicione esta linha antes do </body> -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script src="js/theme.js"></script>
+        <script>
+            // Remover loader quando a página carregar
+            window.addEventListener('load', function () {
+                document.querySelector('.loader').classList.add('hidden');
+            });
+        </script>
+        <!-- Adicione esta linha antes do </body> -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="js/theme.js"></script>
 </body>
 
 </html>
