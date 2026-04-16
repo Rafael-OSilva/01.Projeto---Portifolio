@@ -68,7 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (field.validity.valueMissing) {
             feedback.textContent = 'Este campo é obrigatório';
         } else if (field.validity.typeMismatch) {
-            feedback.textContent = 'Formato inválido';
+            if (field.type === 'email') {
+                feedback.textContent = 'Digite um email válido (ex: nome@email.com)';
+            } else {
+                feedback.textContent = 'Formato inválido';
+            }
         } else if (field.validity.tooShort) {
             feedback.textContent = `Mínimo de ${field.minLength} caracteres`;
         }
@@ -84,11 +88,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Envio do formulário
+    // Envio do formulário - VERSÃO CORRIGIDA
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        // Valida todos os campos (seu código existente continua igual)
+        // Valida todos os campos
         let isValid = true;
         form.querySelectorAll('input, textarea').forEach(input => {
             const event = new Event('blur');
@@ -108,37 +112,60 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Configura estado de loading
         btnEnviar.classList.add('loading');
+        formFeedback.textContent = ''; // Limpa feedback anterior
 
         try {
-            const formData = new FormData(form);
+            // Coleta os dados do formulário
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefoneValor = document.getElementById('telefone').value;
+            const assunto = document.getElementById('assunto').value;
+            const mensagemValor = document.getElementById('mensagem').value;
 
-            // 🔽 ÚNICA COISA QUE MUDA: a URL abaixo 🔽
+            // Prepara os dados no formato que o FormSubmit espera
+            const dados = {
+                name: nome,
+                email: email,
+                telefone: telefoneValor,
+                assunto: assunto,
+                message: mensagemValor,
+                _subject: `Contato do Portfólio - ${assunto || 'Sem assunto'}`,
+                _captcha: 'false',
+                _template: 'table'
+            };
+
+            // Envia para o FormSubmit
             const response = await fetch('https://formsubmit.co/ajax/rafinha101419.silva@gmail.com', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(dados)
             });
 
             const result = await response.json();
 
             if (result.success) {
+                // Sucesso - limpa o formulário
                 form.reset();
-                formFeedback.textContent = 'Mensagem enviada com sucesso! Em breve entrarei em contato.';
-                formFeedback.className = 'form-feedback success';
-                charCount.textContent = '0';
-
-                // Limpa a máscara do telefone também
                 if (telefone) telefone.value = '';
+                if (charCount) charCount.textContent = '0';
+                
+                formFeedback.textContent = '✅ Mensagem enviada com sucesso! Em breve entrarei em contato.';
+                formFeedback.className = 'form-feedback success';
             } else {
-                formFeedback.textContent = result.message || 'Erro ao enviar mensagem. Tente novamente.';
+                // Erro do FormSubmit
+                formFeedback.textContent = result.message || 'Erro ao enviar. Tente novamente.';
                 formFeedback.className = 'form-feedback error';
             }
         } catch (error) {
-            console.error('Erro:', error);
-            formFeedback.textContent = 'Falha na conexão. Tente novamente mais tarde.';
+            console.error('Erro detalhado:', error);
+            formFeedback.textContent = '❌ Falha na conexão. Verifique sua internet e tente novamente.';
             formFeedback.className = 'form-feedback error';
         } finally {
             btnEnviar.classList.remove('loading');
-            formFeedback.scrollIntoView({ behavior: 'smooth' });
+            formFeedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     });
 });
